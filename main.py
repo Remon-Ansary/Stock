@@ -1,4 +1,3 @@
-
 import requests as requests
 import pandas as pd
 token = "cb01vviad3i0i2au9ppg"
@@ -9,6 +8,7 @@ for symbol in allSymbol:
     base_url = "https://finnhub.io/api/v1/quote?"
     req = requests.get(base_url,params={'token':token,'symbol':symbol})
     stock_json = req.json()
+    print("latest price of",symbol,stock_json['c'] )
     if stock_json['dp'] > temp:
         highest = stock_json['dp']
         temp = highest
